@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, Heading, Text, Image, IconButton, useColorModeValue, Stack, Link, keyframes } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Image, IconButton, useColorMode, useColorModeValue, Stack, Link, Button, keyframes } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const fadeIn = keyframes`
@@ -8,8 +8,9 @@ const fadeIn = keyframes`
 `;
 
 const Index = () => {
-  const bg = useColorModeValue("linear-gradient(135deg, #FF6B6B 0%, #556270 100%)", "linear-gradient(135deg, #FF6B6B 0%, #556270 100%)");
-  const color = useColorModeValue("white", "gray.800");
+  const { colorMode, toggleColorMode } = useColorMode();
+  const bg = useColorModeValue("linear-gradient(135deg, #FF6B6B 0%, #556270 100%)", "linear-gradient(135deg, #4A148C 0%, #7C4DFF 100%)");
+  const color = useColorModeValue("white", "gray.100");
 
   return (
     <Flex minHeight="100vh" alignItems="center" justifyContent="space-between" flexDirection={["column", "column", "row"]} bg={bg} color={color} px={[4, 8, 16]} py={[8, 16]}>
@@ -29,6 +30,9 @@ const Index = () => {
           <IconButton as={Link} href="https://twitter.com/johndoe" aria-label="Twitter" icon={<FaTwitter />} size="lg" variant="ghost" _hover={{ color: "pink.500" }} />
         </Stack>
       </Box>
+      <Button onClick={toggleColorMode} pos="absolute" top="1rem" right="1rem">
+        {colorMode === "light" ? "Dark" : "Light"}
+      </Button>
     </Flex>
   );
 };
