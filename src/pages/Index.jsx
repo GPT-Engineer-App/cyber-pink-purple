@@ -9,7 +9,7 @@ const fadeIn = keyframes`
 
 const Index = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const bg = useColorModeValue("linear-gradient(135deg, #FF6B6B 0%, #556270 100%)", "linear-gradient(135deg, #4A148C 0%, #7C4DFF 100%)");
+  const bg = "#37363d";
   const color = useColorModeValue("white", "gray.100");
 
   return (
